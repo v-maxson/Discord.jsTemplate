@@ -6,7 +6,7 @@
 		  "import * as Discord from 'discord.js-light';",
 		  "",
 		  "",
-		  "const event: ITextCommand = {",
+		  "const command: ITextCommand = {",
 		  "    Config: {",
 		  "        Name: \"\",",
 		  "        Description: \"\",",
@@ -19,7 +19,7 @@
 		  "    }",
 		  "}",
 		  "",
-		  "export default event;"
+		  "export default command;"
 		],
 		"description": "TextCommand"
 	}
