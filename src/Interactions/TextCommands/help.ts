@@ -15,9 +15,10 @@ const event: ITextCommand = {
     },
 
     Run: async (client: Discord.Client, message: Discord.Message, args: string[]) => {
-        let embedDescription = "";
 
-        Client.Commands.forEach(command => {
+        // Loop through each command and interpolate it into a string.
+        let embedDescription = "";
+        Client.Collections.TextCommands.forEach(command => {
             if (command.Config.Admin) return;
             embedDescription += `\`${command.Config.Name}\`: ${command.Config.Description}\n`
         });
