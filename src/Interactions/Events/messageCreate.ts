@@ -26,7 +26,7 @@ const event: IClientEvent = {
             await command.Run(client, message, args);
             const elapsed = process.hrtime(timer)[1] / 1000000;
 
-            Logger.Info(`${message.author.tag} (${message.author.id}) executed ${commandName} command... Execution Took: ${process.hrtime(timer)[0]}s ${elapsed.toFixed(3)}ms`);
+            Logger.Info(`${message.author.tag} (${message.author.id}) executed ${commandName} command... Execution Took: ${process.hrtime(timer)[0] ? `${process.hrtime(timer)[0]}s ` : ""}${elapsed.toFixed(3)}ms`);
         }
     }
 }
