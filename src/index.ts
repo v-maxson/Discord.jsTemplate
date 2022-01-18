@@ -9,6 +9,8 @@ import Logger from './Utility/Logger';
 export default class Client {
     public static DiscordClient: Discord.Client; // Your Discord client.
     public static UserConfig: IUserConfig = Config.UserConfig; // Your User config.
+
+    // Collections for commands.
     public static Commands: Discord.Collection<string, ITextCommand> = new Discord.Collection();
     public static Aliases: Discord.Collection<string, string> = new Discord.Collection();
 }
@@ -30,7 +32,7 @@ async function main() {
     // Create a new Discord Client instance.
     Logger.Info('Instantiating Client...');
     Client.DiscordClient = new Discord.Client({
-        // Uncomment the intents you intend to use. This will free up memory usage.
+        // Only use intents that are strictly required. This will free up memory.
         intents: [
             // 'DIRECT_MESSAGES',
             // 'DIRECT_MESSAGE_REACTIONS',
