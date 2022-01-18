@@ -34,7 +34,7 @@ const command: ITextCommand = {
             .addField('Client Uptime:', convertMS(process.uptime()))
             .setTimestamp()
         
-        await message.reply({embeds: [infoEmbed]});
+        message.reply({embeds: [infoEmbed]});
     }
 }
 

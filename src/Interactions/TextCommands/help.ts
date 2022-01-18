@@ -30,7 +30,7 @@ const command: ITextCommand = {
             .setDescription(embedDescription)
             .setTimestamp();
 
-        await message.reply({ embeds: [helpEmbed] });
+        message.reply({ embeds: [helpEmbed] });
     }
 }
 
