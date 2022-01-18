@@ -53,7 +53,7 @@ export default class Logger {
 			sp = stackReg.exec(s) || stackReg2.exec(s);
 		if (sp && sp.length === 5) {
 			data.function = sp[1].length < 1 ? 'Anonymous' : sp[1];
-			data.module = path.basename(sp[2]);
+			data.module = path.basename(sp[2]).replace('Function.', '');
 			data.line = sp[3];
 			data.column = sp[4];
 		}
