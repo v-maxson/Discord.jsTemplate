@@ -9,6 +9,7 @@ import ICollectionData from './Models/ICollectionData';
 export default class Client {
     public static DiscordClient: Discord.Client; // Your Discord client.
     public static UserConfig: IUserConfig = Config.UserConfig; // Your User config.
+    public static PackageVersion: number; // Your package version.
 
     // Collections for commands.
     public static Collections: ICollectionData = {
@@ -19,6 +20,11 @@ export default class Client {
 
 // Use main function for async/await syntax.
 async function main() {
+    const pack = require('../package.json');
+    Client.PackageVersion = pack.version;
+
+    Logger.Info(`Discord.jsTemplate v${Client.PackageVersion}`);
+
     // Instantiate Client Properties.
 
     // Check for DebugMode
