@@ -1,5 +1,6 @@
 import ITextCommand from '../../Models/ITextCommand';
 import * as Discord from 'discord.js-light';
+import Client from '../../index';
 
 function convertMS(value: number): string {
     const date = new Date(value*1000);
@@ -30,9 +31,10 @@ const command: ITextCommand = {
     Run: async (client: Discord.Client, message: Discord.Message, args: string[]) => {
         const infoEmbed: Discord.MessageEmbed = new Discord.MessageEmbed()
             .setAuthor({name: client.user!.username, iconURL: client.user?.displayAvatarURL()})
-            .addField('Client Latency:', client.ws.ping.toString())
+            .addField('Client Latency:', `\`${client.ws.ping}ms\``)
             .addField('Client Uptime:', convertMS(process.uptime()))
-            .setTimestamp()
+            .addField('Version:', `\`v${Client.PackageVersion}\``)
+            .setTimestamp();
         
         message.reply({embeds: [infoEmbed]});
     }
