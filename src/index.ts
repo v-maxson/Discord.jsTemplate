@@ -1,18 +1,20 @@
 import * as Discord from 'discord.js-light';
 import * as Config from './config';
-import ITextCommand from './Models/ITextCommand';
 import IUserConfig from './Models/IUserConfig';
 import EventRegister from './Utility/EventRegister';
 import CommandRegister from './Utility/CommandRegister';
 import Logger from './Utility/Logger';
+import ICollectionData from './Models/ICollectionData';
 
 export default class Client {
     public static DiscordClient: Discord.Client; // Your Discord client.
     public static UserConfig: IUserConfig = Config.UserConfig; // Your User config.
 
     // Collections for commands.
-    public static Commands: Discord.Collection<string, ITextCommand> = new Discord.Collection();
-    public static Aliases: Discord.Collection<string, string> = new Discord.Collection();
+    public static Collections: ICollectionData = {
+        TextCommands: new Discord.Collection(),
+        TextCommandAliases: new Discord.Collection()
+    }
 }
 
 // Use main function for async/await syntax.
