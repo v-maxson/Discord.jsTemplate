@@ -1,0 +1,22 @@
+{
+	"Event": {
+		"prefix": "Event",
+		"body": [
+		  "import IClientEvent from '../../Models/IClientEvent';",
+		  "import * as Discord from 'discord.js-light';",
+		  "",
+		  "const event: IClientEvent = {",
+		  "    Config: {",
+		  "        Name: \"\"",
+		  "    },",
+		  "",
+		  "    Run: async (client: Discord.Client) => {",
+		  "        ",
+		  "    }",
+		  "}",
+		  "",
+		  "export default event;"
+		],
+		"description": "Event"
+	}
+}

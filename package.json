@@ -1,0 +1,16 @@
+{
+  "name": "discord.jstemplate",
+  "version": "0.0.1",
+  "description": "A discord.js template.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node bin/index.js",
+    "run": "npm run build && npm run start"
+  },
+  "author": "gam03",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js-light": "^4.5.2"
+  }
+}
