@@ -9,7 +9,6 @@ function convertMS(value: number): string {
     seconds = date.getUTCSeconds(),
     milliseconds = date.getUTCMilliseconds();
 
-
     let segments = [];
 
     if (days > 0) segments.push(days + ' day' + ((days == 1) ? '' : 's'));
@@ -20,7 +19,7 @@ function convertMS(value: number): string {
     return segments.join(', ');
 }
 
-const event: ITextCommand = {
+const command: ITextCommand = {
     Config: {
         Name: "info",
         Description: "Replies with information including client latency and uptime metrics.",
@@ -39,4 +38,4 @@ const event: ITextCommand = {
     }
 }
 
-export default event;
+export default command;

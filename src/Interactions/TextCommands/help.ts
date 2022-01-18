@@ -3,7 +3,7 @@ import * as Discord from 'discord.js-light';
 import Client from '../../index';
 
 
-const event: ITextCommand = {
+const command: ITextCommand = {
     Config: {
         Name: "help",
         Description: "Replies with a list of commands.",
@@ -34,4 +34,4 @@ const event: ITextCommand = {
     }
 }
 
-export default event;
+export default command;
