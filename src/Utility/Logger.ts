@@ -52,8 +52,8 @@ export default class Logger {
 		var s = stacklist[1] || stacklist[0],
 			sp = stackReg.exec(s) || stackReg2.exec(s);
 		if (sp && sp.length === 5) {
-			data.function = sp[1].length < 1 ? 'Anonymous' : sp[1];
-			data.module = path.basename(sp[2]).replace('Function.', '');
+			data.function = sp[1].length < 1 ? 'Anonymous' : sp[1].replace('Function.', '');
+			data.module = path.basename(sp[2]).replace('.js', '');
 			data.line = sp[3];
 			data.column = sp[4];
 		}
