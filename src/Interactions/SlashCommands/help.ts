@@ -1,4 +1,5 @@
 import * as SlashCreate from 'slash-create';
+import Client from '../../index';
 
 class Command extends SlashCreate.SlashCommand {
     constructor(creator: SlashCreate.SlashCreator) {
@@ -12,7 +13,21 @@ class Command extends SlashCreate.SlashCommand {
     }
 
     async run(context: SlashCreate.CommandContext) {
-        return context.send({ content: "This is a test!", ephemeral: true });
+        // Loop through each command and interpolate it into a string.
+        let embedDescription = "";
+        Client.Collections.TextCommands.forEach(command => {
+            if (command.Config.Admin) return;
+            embedDescription += `\`${command.Config.Name}\`: ${command.Config.Description}\n`
+        });
+
+        const helpEmbed: SlashCreate.MessageEmbedOptions = {
+            author: { name: context.creator.client.user!.username, icon_url: context.creator.client.user!.displayAvatarURL() },
+            title:  'Command List:',
+            description: embedDescription,
+            timestamp: new Date()
+        }
+
+        context.send({ embeds: [helpEmbed], ephemeral: true })
     }
 }
 
