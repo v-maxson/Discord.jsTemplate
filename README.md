@@ -16,6 +16,9 @@ This is a simple template for Discord bots written in TypeScript with the `disco
 3. Install required dependencies with `npm i` or `npm ci`.
 4. Work from there. You can change or remove any existing project files.
 
+### Disclaimer:
+Usage of the `slash-create` library will be reverted later. It's a little too bloated for this project, and it's just being used for it's ease of access. 
+
 ------------------------------------------------
 
 ### Contribution Guidelines:
