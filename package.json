@@ -11,6 +11,7 @@
   "author": "gam03",
   "license": "MIT",
   "dependencies": {
-    "discord.js-light": "^4.5.2"
+    "discord.js-light": "^4.5.2",
+    "slash-create": "^5.0.3"
   }
 }

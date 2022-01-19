@@ -1,5 +1,5 @@
 import IClientEvent from '../../Models/IClientEvent';
-import * as Discord from 'discord.js-light';
+import CommandRegister from '../../Utility/CommandRegister'
 import Logger from '../../Utility/Logger';
 
 const event: IClientEvent = {
@@ -7,8 +7,11 @@ const event: IClientEvent = {
         Name: "ready"
     },
 
-    Run: async (client: Discord.Client) => {
+    Run: async (client) => {
         Logger.Info('Connected...');
+
+        // Register Slash Commands.
+        CommandRegister.RegisterSlashCommands('./Interactions/SlashCommands', client);
 
         // Set Client user activity.
         client.user?.setPresence({

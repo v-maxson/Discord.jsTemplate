@@ -1,0 +1,25 @@
+{
+	"SlashCommand": {
+		"prefix": "SlashCommand",
+		"body": [
+		  "import * as SlashCreate from 'slash-create';",
+		  "",
+		  "class Command extends SlashCreate.SlashCommand {",
+		  "    constructor(creator: SlashCreate.SlashCreator) {",
+		  "        super(creator, {",
+		  "            name: '',",
+		  "            description: '',",
+		  "            guildIDs: []",
+		  "        }); ",
+		  "    }",
+		  "",
+		  "    async run(context: SlashCreate.CommandContext) {",
+		  "        ",
+		  "    }",
+		  "}",
+		  "",
+		  "module.exports = Command;"
+		],
+		"description": "SlashCommand"
+	}
+}

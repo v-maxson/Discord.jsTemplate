@@ -1,9 +1,10 @@
 import Logger from "./Logger";
 import GetFiles from "./GetFiles";
 import ITextCommand from "../Models/ITextCommand";
-import { join } from 'path';
+import { SlashCreator, GatewayServer } from 'slash-create';
+import { join, dirname } from 'path';
 import Client from '../index';
-import { Client as client, Message } from 'discord.js-light';
+import * as Discord from 'discord.js-light';
 
 export default class CommandRegister {
     /**
@@ -47,11 +48,40 @@ export default class CommandRegister {
     }
 
     /**
+     * Registers Slash Commands.
+     * @param path The path to the SlashCommands folder. Should be relative to /bin.
+     * @param client The client to register commands with.
+     */
+    public static async RegisterSlashCommands(path: string, client: Discord.Client): Promise<void> {
+        let dir: string;
+        try { dir = join(dirname(__dirname), path); } catch (e) { return Logger.Error("Could not get files. `path` is invalid."); }
+
+        const creator = new SlashCreator({
+            applicationID: client.user!.id,
+            token: client.token!,
+            client: client
+        });
+
+        creator.on('error', message => Logger.Error(message.message));
+        creator.on('warn', message => Logger.Warning(message.toString()));
+        creator.on('commandError', (command, error) => Logger.Error(`Error Executing ${command.commandName} command.`, error));
+        creator.on('commandRegister', (command) => Logger.Info(`Slash Command Registered: ${command.commandName}`));
+        creator.on('commandRun', (command, _promise, context) => Logger.Info(`${context.user.username} (${context.user.id}) executed ${command.commandName} slash command... `));
+        
+        creator
+                .withServer(
+                    new GatewayServer(handler => client.ws.on('INTERACTION_CREATE', handler))
+                )
+                .registerCommandsIn(dir)
+                .syncCommands();
+    }
+
+    /**
      * Handles Text Commands.
      * @param client The client.
      * @param message The message.
      */
-    public static async HandleTextCommands(client: client, message: Message): Promise<void> {
+    public static async HandleTextCommands(client: Discord.Client, message: Discord.Message): Promise<void> {
         // Ignore messages that are from bots, in a DM channel, or do not start with the designated text command prefix.
         if (message.author.bot) return;
         if (message.channel.type == 'DM') return;

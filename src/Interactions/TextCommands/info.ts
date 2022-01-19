@@ -28,7 +28,7 @@ const command: ITextCommand = {
         Admin: false
     },
 
-    Run: async (client: Discord.Client, message: Discord.Message, args: string[]) => {
+    Run: async (client, message, args) => {
         const infoEmbed: Discord.MessageEmbed = new Discord.MessageEmbed()
             .setAuthor({name: client.user!.username, iconURL: client.user?.displayAvatarURL()})
             .addField('Client Latency:', `\`${client.ws.ping}ms\``)

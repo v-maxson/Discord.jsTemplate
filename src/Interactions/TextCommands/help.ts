@@ -14,7 +14,7 @@ const command: ITextCommand = {
         Admin: false
     },
 
-    Run: async (client: Discord.Client, message: Discord.Message, args: string[]) => {
+    Run: async (client, message, args) => {
 
         // Loop through each command and interpolate it into a string.
         let embedDescription = "";
