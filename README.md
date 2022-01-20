@@ -8,7 +8,9 @@ This is a simple template for Discord bots written in TypeScript with the `disco
 
 ### Requirements: 
 - Node.js 16.9.0 or higher.
-- TypeScript 4.5.4 (`npm install -g typescript`).
+- TypeScript 4.5.4 or higher. (`npm install -g typescript`)*. 
+
+<sub><sup>*Soft-requirment. Installing Typescript globally is not required, however recommended.</sup></sub>
 
 ### Getting Started:
 1. Clone this project with `git clone https://github.com/gam03/Discord.jsTemplate`.
