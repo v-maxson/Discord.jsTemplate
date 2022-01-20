@@ -1,4 +1,5 @@
-import { Client, Message } from 'discord.js-light';
+import { Message } from 'discord.js-light';
+import IClient from './IClient';
 
 export interface ITextCommandConfig {
     /**
@@ -31,5 +32,5 @@ export default interface ITextCommand {
     /**
      * Logic for this command.
      */
-    Run: (client: Client, message: Message, args: string[]) => Promise<void>;
+    Run: (client: IClient, message: Message, args: string[]) => Promise<void>;
 }
