@@ -1,5 +1,5 @@
-import IClientEvent from '../../Models/IClientEvent';
-import CommandRegister from '../../Utility/CommandRegister';
+import IClientEvent from '../../models/IClientEvent';
+import CommandRegister from '../../utility/CommandRegister';
 
 const event: IClientEvent = {
     Config: {
