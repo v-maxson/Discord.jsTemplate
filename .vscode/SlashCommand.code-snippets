@@ -1,25 +1,25 @@
 {
 	"SlashCommand": {
-		"prefix": "SlashCommand",
-		"body": [
-		  "import * as SlashCreate from 'slash-create';",
-		  "",
-		  "class Command extends SlashCreate.SlashCommand {",
-		  "    constructor(creator: SlashCreate.SlashCreator) {",
-		  "        super(creator, {",
-		  "            name: '',",
-		  "            description: '',",
-		  "            guildIDs: []",
-		  "        }); ",
-		  "    }",
-		  "",
-		  "    async run(context: SlashCreate.CommandContext) {",
-		  "        ",
-		  "    }",
-		  "}",
-		  "",
-		  "module.exports = Command;"
-		],
-		"description": "SlashCommand"
-	}
+        "prefix": "SlashCommand",
+        "body": [
+            "// @ts-ignore",
+            "import * as Discord from 'discord.js-light';",
+            "import { SlashCommandBuilder } from '@discordjs/builders';",
+            "import ISlashCommand from '../../models/ISlashCommand';",
+            "",
+            "const command: ISlashCommand = {",
+            "    Config: new SlashCommandBuilder()",
+            "        .setName('')",
+            "        .setDescription('')",
+            "    ,",
+            "",
+            "    Run: async (client, interaction) => {",
+            "",
+            "    }",
+            "}",
+            "",
+            "export default command;"
+        ],
+        "description": "SlashCommand"
+    }
 }
