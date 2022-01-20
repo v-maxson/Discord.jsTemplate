@@ -1,34 +1,25 @@
-import * as SlashCreate from 'slash-create';
-import Client from '../../index';
+// @ts-ignore
+import * as Discord from 'discord.js-light';
+import { SlashCommandBuilder } from '@discordjs/builders';
+import ISlashCommand from '../../models/ISlashCommand';
 
-class Command extends SlashCreate.SlashCommand {
-    constructor(creator: SlashCreate.SlashCreator) {
-        super(creator, {
-            name: 'help',
-            description: 'Replies with a list of commands.',
-            guildIDs: [
-                "820008628777254942"
-            ]
-        }); 
-    }
+const command: ISlashCommand = {
+    Config: new SlashCommandBuilder()
+        .setName('help')
+        .setDescription('Replies with a list of text-based commands.')
+    ,
 
-    async run(context: SlashCreate.CommandContext) {
-        // Loop through each command and interpolate it into a string.
-        let embedDescription = "";
-        Client.Collections.TextCommands.forEach(command => {
-            if (command.Config.Admin) return;
-            embedDescription += `\`${command.Config.Name}\`: ${command.Config.Description}\n`
-        });
+    Run: async (client, interaction) => {
+        await interaction.deferReply({ ephemeral: true });
 
-        const helpEmbed: SlashCreate.MessageEmbedOptions = {
-            author: { name: context.creator.client.user!.username, icon_url: context.creator.client.user!.displayAvatarURL() },
-            title:  'Command List:',
-            description: embedDescription,
-            timestamp: new Date()
-        }
+        const helpDescription = client.Collections.TextCommands.map(c => `\`${c.Config.Name}\`: ${c.Config.Description}`).join('\n');
 
-        context.send({ embeds: [helpEmbed], ephemeral: true })
+        const helpEmbed = new Discord.MessageEmbed()
+            .setAuthor({ name: 'Text Commands:', iconURL: client.DiscordClient.user!.displayAvatarURL() })
+            .setDescription(helpDescription.length < 1 ? 'None.' : helpDescription);
+        
+        interaction.editReply({ content: null, embeds: [helpEmbed] });
     }
 }
 
-module.exports = Command;
+export default command;
