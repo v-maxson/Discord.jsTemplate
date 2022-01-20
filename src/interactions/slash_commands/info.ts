@@ -1,6 +1,7 @@
-import ITextCommand from '../../models/ITextCommand';
+// @ts-ignore
 import * as Discord from 'discord.js-light';
-import Client from '../../index';
+import { SlashCommandBuilder } from '@discordjs/builders';
+import ISlashCommand from '../../models/ISlashCommand';
 
 function convertMS(value: number): string {
     const date = new Date(value*1000);
@@ -20,23 +21,23 @@ function convertMS(value: number): string {
     return segments.join(', ');
 }
 
-const command: ITextCommand = {
-    Config: {
-        Name: "info",
-        Description: "Replies with information including client latency and uptime metrics.",
-        Aliases: [],
-        Admin: false
-    },
+const command: ISlashCommand = {
+    Config: new SlashCommandBuilder()
+        .setName('info')
+        .setDescription('Replies with information including client latency and uptime metrics.')
+    ,
 
-    Run: async (client, message, args) => {
+    Run: async (client, interaction) => {
+        await interaction.deferReply({ ephemeral: true });
+
         const infoEmbed: Discord.MessageEmbed = new Discord.MessageEmbed()
             .setAuthor({name: client.DiscordClient.user!.username, iconURL: client.DiscordClient.user?.displayAvatarURL()})
             .addField('Client Latency:', `\`${client.DiscordClient.ws.ping}ms\``)
             .addField('Client Uptime:', convertMS(process.uptime()))
-            .addField('Version:', `\`v${Client.PackageVersion}\``)
+            .addField('Version:', `\`v${client.PackageVersion}\``)
             .setTimestamp();
         
-        message.reply({embeds: [infoEmbed]});
+        interaction.editReply({embeds: [infoEmbed]});
     }
 }
 
