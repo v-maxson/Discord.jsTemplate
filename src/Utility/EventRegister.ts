@@ -1,7 +1,7 @@
 import Logger from "./Logger";
-import * as Discord from 'discord.js-light';
 import GetFiles from "./GetFiles";
-import IClientEvent from "../Models/IClientEvent";
+import IClientEvent from "../models/IClientEvent";
+import IClient from "../models/IClient";
 import { join } from 'path';
 
 export default class EventRegister {
@@ -10,7 +10,7 @@ export default class EventRegister {
      * @param path The path to the events folder. Should be relative to ./bin.
      * @param client The client to register events.
      */
-    public static async RegisterEvents(path: string, client: Discord.Client): Promise<void> {
+    public static async RegisterEvents(path: string, client: IClient): Promise<void> {
         // Make path relative to /bin
         let dir: string;
         try { dir = join('./bin/', path); } catch (e) { return Logger.Error("Could not get files. `path` is invalid."); }
@@ -23,7 +23,7 @@ export default class EventRegister {
             const event: IClientEvent = require(file).default;
 
             Logger.Info(`Registering Event: ${event.Config.Name}`);
-            client.on(event.Config.Name, event.Run.bind(null, client));
+            client.DiscordClient.on(event.Config.Name, event.Run.bind(null, client));
         }
     }
 }
