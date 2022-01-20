@@ -19,7 +19,10 @@ export default class CommandRegister {
         try { dir = join('./bin/', path); } catch (e) { return Logger.Error("Could not get files. `path` is invalid."); }
 
         // Iterate over all event files.
-        for await (const file of GetFiles(dir)) {
+        const files = GetFiles(dir);
+        if (!files) return;
+
+        for await (const file of files) {
             // Skip files that are not .js files.
             if (file.split('.').pop() != 'js') continue;
 
@@ -60,7 +63,10 @@ export default class CommandRegister {
         try { dir = join('./bin/', path); } catch (e) { return Logger.Error("Could not get files. `path` is invalid."); }
 
         // Iterate over all Slash Command files.
-        for await (const file of GetFiles(dir)) {
+        const files = GetFiles(dir);
+        if (!files) return;
+
+        for await (const file of files) {
             // Skip files that are not .js files.
             if (file.split('.').pop() != 'js') continue;
 
@@ -143,8 +149,6 @@ export default class CommandRegister {
 
     public static async HandleSlashCommands(client: IClient, interaction: Discord.CommandInteraction) {
         const command = client.Collections.SlashCommands.get(interaction.commandName);
-
-        Logger.Debug(`Handling Slash Command, name: ${command?.Config.name}`);
 
         if (command) {
             const timer = process.hrtime();

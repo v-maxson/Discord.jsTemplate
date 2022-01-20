@@ -16,7 +16,10 @@ export default class EventRegister {
         try { dir = join('./bin/', path); } catch (e) { return Logger.Error("Could not get files. `path` is invalid."); }
 
         // Iterate over all event files.
-        for await (const file of GetFiles(dir)) {
+        const files = GetFiles(dir);
+        if (!files) return;
+
+        for await (const file of files) {
             // Skip files that are not .js files.
             if (file.split('.').pop() != 'js') continue;
 
