@@ -6,7 +6,7 @@ import Logger from './utility/Logger';
 import IClient from './models/IClient';
 
 const Client: IClient = {
-    DiscordClient: new Discord.Client({ intents: [] }), // This will be overriden.
+    DiscordClient: null,
     UserConfig: Config.UserConfig,
     PackageVersion: 0,
     Collections: {
