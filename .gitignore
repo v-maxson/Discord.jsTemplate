@@ -134,3 +134,6 @@ bin/
 
 # Testing Files
 debug_config.ts
+
+# Editor Configuration.
+/.vscode/settings.json
