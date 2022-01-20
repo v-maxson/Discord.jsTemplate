@@ -1,6 +1,6 @@
 import Logger from "./Logger";
 import GetFiles from "./GetFiles";
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 import ITextCommand from "../models/ITextCommand";
 import ISlashCommand from '../models/ISlashCommand';
 import { join } from 'path';
@@ -82,14 +82,18 @@ export default class CommandRegister {
             client.Collections.SlashCommands.set(command.Config.name, command);
         }
 
-        const cachedCommands: string = readFileSync('cache/application_commands.json', 'utf-8');
+        let cachedCommands: string;
+        if (!existsSync('cache/application_commands.json')) cachedCommands = "[]";
+        else cachedCommands = readFileSync('cache/application_commands.json', 'utf-8');
 
         // If one slash command has changed, all slash commands will need to be re-registered.
         // This is temporary.
         if (cachedCommands != JSON.stringify(client.Collections.SlashCommands)) {
             // Write new commands array to cache file.
             Logger.Info('Caching slash command changes...');
-            writeFileSync('cache/application_commands.json', JSON.stringify(client.Collections.SlashCommands));
+
+            if (existsSync('cache/application_commands.json')) writeFileSync('cache/application_commands.json', JSON.stringify(client.Collections.SlashCommands));
+            else Logger.Error('cache/application_commands.json not found, cannot cache slash commands. Slash commands will be registered EVERY ready event.');
 
             // Register Commands.
             if (client.UserConfig.SlashCommands.RegisterGlobally) {
