@@ -1,10 +1,10 @@
 import * as Discord from 'discord.js-light';
 import * as Config from './config';
-import IUserConfig from './Models/IUserConfig';
-import EventRegister from './Utility/EventRegister';
-import CommandRegister from './Utility/CommandRegister';
-import Logger from './Utility/Logger';
-import ICollectionData from './Models/ICollectionData';
+import IUserConfig from './models/IUserConfig';
+import EventRegister from './utility/EventRegister';
+import CommandRegister from './utility/CommandRegister';
+import Logger from './utility/Logger';
+import ICollectionData from './models/ICollectionData';
 
 export default class Client {
     public static DiscordClient: Discord.Client; // Your Discord client.
@@ -89,10 +89,10 @@ async function main() {
 
     // Register Events.
     Logger.Info('Registering Events...');
-    await EventRegister.RegisterEvents('./Interactions/Events/', Client.DiscordClient);
+    await EventRegister.RegisterEvents('./interactions/events/', Client.DiscordClient);
 
     Logger.Info('Registering Commands...');
-    await CommandRegister.RegisterTextCommands('./Interactions/TextCommands');
+    await CommandRegister.RegisterTextCommands('./interactions/text_commands');
 
     // Connect to Discord.
     Logger.Info('Connecting...');

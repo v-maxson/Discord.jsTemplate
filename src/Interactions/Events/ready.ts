@@ -1,6 +1,6 @@
-import IClientEvent from '../../Models/IClientEvent';
-import CommandRegister from '../../Utility/CommandRegister'
-import Logger from '../../Utility/Logger';
+import IClientEvent from '../../models/IClientEvent';
+import CommandRegister from '../../utility/CommandRegister'
+import Logger from '../../utility/Logger';
 
 const event: IClientEvent = {
     Config: {
@@ -11,7 +11,7 @@ const event: IClientEvent = {
         Logger.Info('Connected...');
 
         // Register Slash Commands.
-        CommandRegister.RegisterSlashCommands('./Interactions/SlashCommands', client);
+        CommandRegister.RegisterSlashCommands('./interactions/slash_commands', client);
 
         // Set Client user activity.
         client.user?.setPresence({
