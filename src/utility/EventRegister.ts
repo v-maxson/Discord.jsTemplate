@@ -26,7 +26,7 @@ export default class EventRegister {
             const event: IClientEvent = require(file).default;
 
             Logger.Info(`Registering Event: ${event.Config.Name}`);
-            client.DiscordClient.on(event.Config.Name, event.Run.bind(null, client));
+            client.DiscordClient!.on(event.Config.Name, event.Run.bind(null, client));
         }
     }
 }

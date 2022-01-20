@@ -31,8 +31,8 @@ const command: ISlashCommand = {
         await interaction.deferReply({ ephemeral: true });
 
         const infoEmbed: Discord.MessageEmbed = new Discord.MessageEmbed()
-            .setAuthor({name: client.DiscordClient.user!.username, iconURL: client.DiscordClient.user?.displayAvatarURL()})
-            .addField('Client Latency:', `\`${client.DiscordClient.ws.ping}ms\``)
+            .setAuthor({name: client.DiscordClient!.user!.username, iconURL: client.DiscordClient!.user?.displayAvatarURL()})
+            .addField('Client Latency:', `\`${client.DiscordClient!.ws.ping}ms\``)
             .addField('Client Uptime:', convertMS(process.uptime()))
             .addField('Version:', `\`v${client.PackageVersion}\``)
             .setTimestamp();

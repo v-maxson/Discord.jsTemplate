@@ -99,7 +99,7 @@ export default class CommandRegister {
                     commandArr.push(command.Config.toJSON());
                 });
 
-                client.DiscordClient.application?.commands.set(commandArr);
+                client.DiscordClient!.application?.commands.set(commandArr);
             } else {
                 const commandArr: ApplicationCommandDataResolvable[] = [];
 
@@ -108,7 +108,7 @@ export default class CommandRegister {
                 });
 
                 client.UserConfig.SlashCommands.SlashCommandGuilds.forEach(async guild => {
-                    const fetchedGuild = await client.DiscordClient.guilds.fetch(guild);
+                    const fetchedGuild = await client.DiscordClient!.guilds.fetch(guild);
 
                     fetchedGuild.commands.set(commandArr);
                 });

@@ -15,7 +15,7 @@ const command: ISlashCommand = {
         const helpDescription = client.Collections.TextCommands.map(c => `\`${c.Config.Name}\`: ${c.Config.Description}`).join('\n');
 
         const helpEmbed = new Discord.MessageEmbed()
-            .setAuthor({ name: 'Text Commands:', iconURL: client.DiscordClient.user!.displayAvatarURL() })
+            .setAuthor({ name: 'Text Commands:', iconURL: client.DiscordClient!.user!.displayAvatarURL() })
             .setDescription(helpDescription.length < 1 ? 'None.' : helpDescription);
         
         interaction.editReply({ content: null, embeds: [helpEmbed] });

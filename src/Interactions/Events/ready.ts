@@ -11,7 +11,7 @@ const event: IClientEvent = {
         Logger.Info('Connected...');
 
         // Set Client user activity.
-        client.DiscordClient.user?.setPresence({
+        client.DiscordClient!.user?.setPresence({
             activities: [
                 {
                     name: "an algorithmic gorilla plot world dominance.",
