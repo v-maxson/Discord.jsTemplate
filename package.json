@@ -12,5 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "discord.js-light": "^4.5.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
   }
 }
