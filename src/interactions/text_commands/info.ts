@@ -1,4 +1,4 @@
-import ITextCommand from '../../Models/ITextCommand';
+import ITextCommand from '../../models/ITextCommand';
 import * as Discord from 'discord.js-light';
 import Client from '../../index';
 
@@ -30,8 +30,8 @@ const command: ITextCommand = {
 
     Run: async (client, message, args) => {
         const infoEmbed: Discord.MessageEmbed = new Discord.MessageEmbed()
-            .setAuthor({name: client.user!.username, iconURL: client.user?.displayAvatarURL()})
-            .addField('Client Latency:', `\`${client.ws.ping}ms\``)
+            .setAuthor({name: client.DiscordClient.user!.username, iconURL: client.DiscordClient.user?.displayAvatarURL()})
+            .addField('Client Latency:', `\`${client.DiscordClient.ws.ping}ms\``)
             .addField('Client Uptime:', convertMS(process.uptime()))
             .addField('Version:', `\`v${Client.PackageVersion}\``)
             .setTimestamp();
