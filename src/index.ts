@@ -1,22 +1,22 @@
 import * as Discord from 'discord.js-light';
 import * as Config from './config';
-import IUserConfig from './models/IUserConfig';
 import EventRegister from './utility/EventRegister';
 import CommandRegister from './utility/CommandRegister';
 import Logger from './utility/Logger';
-import ICollectionData from './models/ICollectionData';
+import IClient from './models/IClient';
 
-export default class Client {
-    public static DiscordClient: Discord.Client; // Your Discord client.
-    public static UserConfig: IUserConfig = Config.UserConfig; // Your User config.
-    public static PackageVersion: number; // Your package version.
-
-    // Collections for commands.
-    public static Collections: ICollectionData = {
+const Client: IClient = {
+    DiscordClient: new Discord.Client({ intents: [] }), // This will be overriden.
+    UserConfig: Config.UserConfig,
+    PackageVersion: 0,
+    Collections: {
         TextCommands: new Discord.Collection(),
-        TextCommandAliases: new Discord.Collection()
+        TextCommandAliases: new Discord.Collection(),
+        SlashCommands: new Discord.Collection()
     }
 }
+
+export default Client;
 
 // Use main function for async/await syntax.
 async function main() {
@@ -89,10 +89,10 @@ async function main() {
 
     // Register Events.
     Logger.Info('Registering Events...');
-    await EventRegister.RegisterEvents('./interactions/events/', Client.DiscordClient);
+    await EventRegister.RegisterEvents('./interactions/events/', Client);
 
     Logger.Info('Registering Commands...');
-    await CommandRegister.RegisterTextCommands('./interactions/text_commands');
+    await CommandRegister.RegisterTextCommands('./interactions/text_commands', Client);
 
     // Connect to Discord.
     Logger.Info('Connecting...');
