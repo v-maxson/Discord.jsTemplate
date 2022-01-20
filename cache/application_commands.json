@@ -1,1 +1,1 @@
-[{"Config":{"name":"help","description":"Replies with a list of text-based commands.","options":[]}}]
+[{"Config":{"name":"help","description":"Replies with a list of text-based commands.","options":[]}},{"Config":{"name":"info","description":"Replies with information including client latency and uptime metrics.","options":[]}}]
