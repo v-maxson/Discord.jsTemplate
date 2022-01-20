@@ -1,4 +1,4 @@
-import { Client } from 'discord.js-light';
+import IClient from './IClient';
 
 export interface IEventConfig {
     /**
@@ -16,5 +16,5 @@ export default interface IClientEvent {
     /**
      * Logic for this event.
      */
-    Run: (client: Client, arg2: any, arg3: any, arg4: any) => Promise<void>;
+    Run: (client: IClient, arg2: any, arg3: any, arg4: any) => Promise<void>;
 }
