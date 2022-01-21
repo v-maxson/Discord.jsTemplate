@@ -15,8 +15,8 @@ This is a simple template for Discord bots written in TypeScript with the `disco
 ------------------------------------------------
 
 ### Getting Started:
-1. Clone this project with `git clone https://github.com/gam03/Discord.jsTemplate`.
-2. Navigate to the cloned directory (usually with `cd Discord.jsTemplate`).
+1. Clone this project with `git clone https://github.com/gam03/Discord.jsTemplate {folder name}`.
+2. Navigate to the cloned directory (usually with `cd {folder name}`).
 3. Install required dependencies with `npm i` or `npm ci`.
 4. Work from there. You can change or remove any existing project files.
 
@@ -37,8 +37,12 @@ Simply run `npm run run`* in this directory.
 
 ------------------------------------------------
 
-### Disclaimer:
-Currently, Slash Commands do NOT support permissions. If you have any commands that require permissions, you'll have to either implement that yourself or use text commands for any sensitive or moderation commands.
+### Important:
+- Currently, Slash Commands do NOT support permissions. If you have any commands that require permissions, you'll have to either implement that yourself or use text commands for any sensitive or moderation commands.
+
+- TextCommands/SlashCommands/Events CAN be nested within subdirectories of their perspective directories. They will be recursively searched and found. This can help with project organization at scale. (**DISCLAIMER**: Snippets have been created with JUST the base directory in mind, so you have to change around some imports.)
+
+- To create a seperate config (usually for debugging), create a `src/debug_config.ts` and copy/paste `src/config.ts` into it. Set `DebugMode` to `true` within `src/config.ts` to use the Debugging Config file.
 
 ------------------------------------------------
 
