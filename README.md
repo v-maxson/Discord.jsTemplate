@@ -44,6 +44,10 @@ Simply run `npm run run`* in this directory.
 
 - To create a seperate config (usually for debugging), create a `src/debug_config.ts` and copy/paste `src/config.ts` into it. Set `DebugMode` to `true` within `src/config.ts` to use the Debugging Config file.
 
+- Buttons are **NOT** supported as of yet.
+
+- In order for slash commands to work properly, you'll need to delete all of the data within `cache/application_commands.json` and replace it with just `[]`.
+
 ------------------------------------------------
 
 ### Contribution Guidelines:
