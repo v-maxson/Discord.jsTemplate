@@ -12,6 +12,8 @@ This is a simple template for Discord bots written in TypeScript with the `disco
 
 <sub><sup>*Soft-requirment. Installing Typescript globally is not required, however recommended.</sup></sub>
 
+------------------------------------------------
+
 ### Getting Started:
 1. Clone this project with `git clone https://github.com/gam03/Discord.jsTemplate`.
 2. Navigate to the cloned directory (usually with `cd Discord.jsTemplate`).
@@ -33,6 +35,10 @@ Simply run `npm run run`* in this directory.
 
 <sub><sup>*If, for some reason, `npm run start` fails, attempt to start the transpiled `index.js` files with `node bin/index.js`</sup></sub>
 
+------------------------------------------------
+
+### Disclaimer:
+Currently, Slash Commands do NOT support permissions. If you have any commands that require permissions, you'll have to either implement that yourself or use text commands for any sensitive or moderation commands.
 
 ------------------------------------------------
 
