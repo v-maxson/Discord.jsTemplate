@@ -23,8 +23,9 @@ There are two ways to run this project.
 
 ##### Method 1 (recommended when running locally): 
 
-Simply run `npm run run` in this directory.
+Simply run `npm run run`* in this directory.
 
+<sub><sup>*`npm run run` is equivalent to `npm run build && npm run start`</sup></sub>
 
 ##### Method 2 (recommended when deploying):
 - Run `npm run build` to transpile typescript files.
