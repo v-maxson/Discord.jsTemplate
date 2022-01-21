@@ -12,7 +12,7 @@ const command: ISlashCommand = {
     Run: async (client, interaction) => {
         await interaction.deferReply({ ephemeral: true });
 
-        const helpDescription = client.Collections.TextCommands.map(c => `\`${c.Config.Name}\`: ${c.Config.Description}`).join('\n');
+        const helpDescription = client.Collections.TextCommands.filter(c => !c.Config.Admin).map(c => `\`${c.Config.Name}\`: ${c.Config.Description}`).join('\n');
 
         const helpEmbed = new Discord.MessageEmbed()
             .setAuthor({ name: 'Text Commands:', iconURL: client.DiscordClient!.user!.displayAvatarURL() })
