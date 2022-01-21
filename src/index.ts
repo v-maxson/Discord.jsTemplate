@@ -31,7 +31,15 @@ async function main() {
     if (Client.UserConfig.DebugMode) {
         try {
             // @ts-ignore // Required due to TypeScript warning about the file not existing.
-            Client.UserConfig = (await import('./debug_config')).UserConfig;
+            const DebugImport = await import('./debug_config');
+
+            // @ts-ignore
+            if (!DebugImport.UserConfig) {
+                Logger.Warning('Could not load debug_config, DebugMode will not work!');
+            } else {
+                // @ts-ignore
+                Client.UserConfig = DebugImport.UserConfig;
+            }
         } catch (err) {
             Logger.Warning('Could not load debug_config, DebugMode will not work!');
         }
