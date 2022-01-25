@@ -10,17 +10,8 @@ const event: IClientEvent = {
     Run: async (client) => {
         Logger.Info('Connected...');
 
-        // Set Client user activity.
-        client.DiscordClient!.user?.setPresence({
-            activities: [
-                {
-                    name: "an algorithmic gorilla plot world dominance.",
-                    type: 'LISTENING'
-                }
-            ],
-            afk: false,
-            status: 'dnd'
-        });
+        // @ts-ignore - Set Client user activity.
+        client.DiscordClient!.user?.setPresence({ activities: [ { name: client.UserConfig.Presence.Name, type: client.UserConfig.Presence.Type,  } ], afk: false, status: 'dnd' });
 
         await CommandRegister.RegisterSlashCommands('./interactions/slash_commands', client);
     }
