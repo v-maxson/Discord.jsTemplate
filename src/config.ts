@@ -12,5 +12,11 @@ export const UserConfig: IUserConfig = {
     SlashCommands: {
         RegisterGlobally: true, // Whether or not to register commands globally.
         SlashCommandGuilds: [] // The guilds to register commands in, will be ignored if RegisterGlobally is true.
+    },
+    Presence: {
+        Name: 'with Discord...',
+        Type: 'PLAYING',
+        AFK: false,
+        Status: 'online'
     }
 }
