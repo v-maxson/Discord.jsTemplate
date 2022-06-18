@@ -12,7 +12,7 @@ This is a simple template for Discord bots written in TypeScript with the `disco
 - Node.js 16.9.0 or higher.
 - TypeScript 4.5.4 or higher. (`npm install -g typescript`)*. 
 
-<sub><sup>*Soft-requirment. Installing Typescript globally is not required, however recommended.</sup></sub>
+> \* Soft-requirment. Installing Typescript globally is not required, however recommended.
 
 ------------------------------------------------
 
@@ -29,13 +29,13 @@ There are two ways to run this project.
 
 Simply run `npm run run`* in this directory.
 
-<sub><sup>*`npm run run` is equivalent to `npm run build && npm run start`</sup></sub>
+> \* `npm run run` is equivalent to `npm run build && npm run start`
 
 ##### Method 2 (recommended when deploying):
 - Run `npm run build` to transpile typescript files.
 - Run `npm run start`* to run the transpiled files.
 
-<sub><sup>*If, for some reason, `npm run start` fails, attempt to start the transpiled `index.js` files with `node bin/index.js`</sup></sub>
+> \* If, for some reason, `npm run start` fails, attempt to start the transpiled `index.js` files with `node bin/index.js`
 
 ------------------------------------------------
 
