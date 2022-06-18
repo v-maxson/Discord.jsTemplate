@@ -4,6 +4,8 @@
 ## About:
 This is a simple template for Discord bots written in TypeScript with the `discord.js-light` library. It comes with a basic set of features including Command and Event handlers. It also includes code snippets for Visual Studio Code (if you'd like to add snippets for other editors, please submit a pull request).
 
+> Maintainers Note: This repository is not regularly maintained, and may not be completely up-to-date with new features/bugfixes for Discord.js (or other dependencies).
+
 ------------------------------------------------
 
 ### Requirements: 
