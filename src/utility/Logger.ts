@@ -84,7 +84,6 @@ export default class Logger {
     /**
      * Logs to `process.stderr` with a severity of LogSeverity.CRITICAL.
      * @param message The message to log.
-     * @param source The source of the message.
      * @param error The error to accompany the message.
      */
     public static Critical(message: string, error: Error | null = null) {
@@ -94,7 +93,6 @@ export default class Logger {
     /**
      * Logs to `process.stderr` with a severity of LogSeverity.ERROR.
      * @param message The message to log.
-     * @param source The source of the message.
      * @param error The error to accompany the message.
      */
      public static Error(message: string, error: Error | null = null) {
@@ -104,7 +102,6 @@ export default class Logger {
     /**
      * Logs to `process.stderr` with a severity of LogSeverity.WARNING.
      * @param message The message to log.
-     * @param source The source of the message.
      * @param error The error to accompany the message.
      */
      public static Warning(message: string, error: Error | null = null) {
@@ -114,7 +111,6 @@ export default class Logger {
     /**
      * Logs to `process.stdout` with a severity of LogSeverity.INFO.
      * @param message The message to log.
-     * @param source The source of the message.
      * @param error The error to accompany the message.
      */
      public static Info(message: string, error: Error | null = null) {
@@ -124,7 +120,6 @@ export default class Logger {
     /**
      * Logs to `process.stdout` with a severity of LogSeverity.VERBOSE.
      * @param message The message to log.
-     * @param source The source of the message.
      * @param error The error to accompany the message.
      */
      public static Verbose(message: string, error: Error | null = null) {
@@ -134,7 +129,6 @@ export default class Logger {
     /**
      * Logs to `process.stdout` with a severity of LogSeverity.DEBUG.
      * @param message The message to log.
-     * @param source The source of the message.
      * @param error The error to accompany the message.
      */
      public static Debug(message: string, error: Error | null = null) {
