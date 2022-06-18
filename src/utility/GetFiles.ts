@@ -1,5 +1,5 @@
-import { readdir } from 'fs/promises';
 import { existsSync } from 'fs';
+import { readdir } from 'fs/promises';
 import { resolve } from 'path';
 
 export default async function* GetFiles(dir: string): AsyncGenerator<string> | null {

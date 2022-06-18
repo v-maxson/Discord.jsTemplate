@@ -1,12 +1,12 @@
-import Logger from "./Logger";
-import GetFiles from "./GetFiles";
-import { readFileSync, writeFileSync, existsSync } from 'fs';
-import ITextCommand from "../models/ITextCommand";
-import ISlashCommand from '../models/ISlashCommand';
-import { join } from 'path';
-import IClient from "../models/IClient";
 import * as Discord from 'discord.js-light';
 import { ApplicationCommandDataResolvable } from "discord.js-light";
+import { existsSync, readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
+import IClient from "../models/IClient";
+import ISlashCommand from '../models/ISlashCommand';
+import ITextCommand from "../models/ITextCommand";
+import GetFiles from "./GetFiles";
+import Logger from "./Logger";
 
 export default class CommandRegister {
     /**

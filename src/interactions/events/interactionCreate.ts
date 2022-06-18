@@ -1,5 +1,6 @@
-import IClientEvent from '../../models/IClientEvent';
 import * as Discord from 'discord.js-light';
+
+import IClientEvent from '../../models/IClientEvent';
 import CommandRegister from '../../utility/CommandRegister';
 
 const event: IClientEvent = {

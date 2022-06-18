@@ -1,5 +1,5 @@
-import IDebugData from '../models/IDebugData';
 import * as path from 'path';
+import IDebugData from '../models/IDebugData';
 
 export enum LogSeverity {
     /**

@@ -1,6 +1,6 @@
-// @ts-ignore
-import * as Discord from 'discord.js-light';
 import { SlashCommandBuilder } from '@discordjs/builders';
+import * as Discord from 'discord.js-light';
+
 import ISlashCommand from '../../models/ISlashCommand';
 
 function convertMS(value: number): string {

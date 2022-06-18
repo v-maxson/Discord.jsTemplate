@@ -1,8 +1,8 @@
-import Logger from "./Logger";
-import GetFiles from "./GetFiles";
-import IClientEvent from "../models/IClientEvent";
-import IClient from "../models/IClient";
 import { join } from 'path';
+import IClient from "../models/IClient";
+import IClientEvent from "../models/IClientEvent";
+import GetFiles from "./GetFiles";
+import Logger from "./Logger";
 
 export default class EventRegister {
     /**

@@ -1,4 +1,5 @@
 import { Message } from 'discord.js-light';
+
 import IClient from './IClient';
 
 export interface ITextCommandConfig {

@@ -1,4 +1,4 @@
-import { ActivityType, PresenceStatusData } from "discord.js-light";
+import { ActivityType, PresenceStatusData } from 'discord.js-light';
 
 interface IGeneralConfigurationData {
     Token: string;

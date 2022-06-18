@@ -1,9 +1,9 @@
 import * as Discord from 'discord.js-light';
 import * as Config from './config';
-import EventRegister from './utility/EventRegister';
-import CommandRegister from './utility/CommandRegister';
-import Logger from './utility/Logger';
 import IClient from './models/IClient';
+import CommandRegister from './utility/CommandRegister';
+import EventRegister from './utility/EventRegister';
+import Logger from './utility/Logger';
 
 const Client: IClient = {
     DiscordClient: null,

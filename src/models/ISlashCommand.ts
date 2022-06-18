@@ -1,5 +1,6 @@
-import { CommandInteraction } from 'discord.js-light';
 import { SlashCommandBuilder } from '@discordjs/builders';
+import { CommandInteraction } from 'discord.js-light';
+
 import IClient from './IClient';
 
 export default interface ITextCommand {
