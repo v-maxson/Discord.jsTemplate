@@ -105,7 +105,7 @@ async function main() {
     // Connect to Discord.
     Logger.Info('Connecting...');
     await Client.DiscordClient.login(Client.UserConfig.General.Token).catch(err => {
-        if (err.code == 'TOKEN_INVALID') Logger.Critical('Invalid Token Provided...', err);
+        if (err.code == 'TOKEN_INVALID') Logger.Critical('Invalid Token Provided...');
         else Logger.Critical('An unknown error occured...', err);
     });
 }
