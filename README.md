@@ -25,15 +25,14 @@ This is a simple template for Discord bots written in TypeScript with the `disco
 ### Running:
 There are two ways to run this project. 
 
-##### Method 1 (recommended when running locally): 
-
-Simply run `npm run run`* in this directory.
+- ##### Method 1 (recommended when running locally): 
+  - Simply run `npm run run`* in this directory.
 
 > \* `npm run run` is equivalent to `npm run build && npm run start`
 
-##### Method 2 (recommended when deploying):
-- Run `npm run build` to transpile typescript files.
-- Run `npm run start`* to run the transpiled files.
+- ##### Method 2 (recommended when deploying):
+  - Run `npm run build` to transpile typescript files.
+  - Run `npm run start`* to run the transpiled files.
 
 > \* If, for some reason, `npm run start` fails, attempt to start the transpiled `index.js` files with `node bin/index.js`
 
