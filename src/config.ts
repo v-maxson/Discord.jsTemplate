@@ -3,7 +3,7 @@
 import IUserConfig from "./models/IUserConfig";
 
 export const UserConfig: IUserConfig = {
-    DebugMode: true, // Disable this to remove warnings about the file missing.
+    DebugMode: false,
     General: {
         Token: '', // Place your token here.
         TextCommandPrefix: '!', // This is the prefix for text commands.
