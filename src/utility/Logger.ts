@@ -34,7 +34,7 @@ export enum LogSeverity {
 }
 
 export default class Logger {
-    public static LogFormat: string = "[{source}][{severity}] {message}{error}{error_stack}"
+    public static LogFormat: string = "[{source}][{severity}] {message} {error}{error_stack}"
 
     // This is modified code from the 'tracer for node.js' logging library. Found here: https://github.com/baryon/tracer
     private static getCaller(): IDebugData {
@@ -67,7 +67,6 @@ export default class Logger {
      * Logs to `process.stdout`.
      * @param message The message to log.
      * @param severity The severity of the message.
-     * @param source The source of the message.
      * @param error The error to accompany the message.
      */
     public static Log(message: string, severity: LogSeverity, error: Error | null = null) {
